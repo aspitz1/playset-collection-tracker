@@ -26,7 +26,7 @@ model Collection {
 
 model Card {
   id            Int         @id @default(autoincrement())
-  apiID         Int         @unique
+  apiID         String         @unique
   amount        Int
   Collection    Collection? @relation(fields: [collectionsId], references: [id])
   collectionsId Int?

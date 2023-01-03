@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
@@ -14,11 +14,11 @@ async function main() {
             cards: {
               create: [
                 {
-                  apiID: 187597,
+                  apiID: "1da2555f-8856-585e-bc39-50a78ad255d6",
                   amount: 4
                 },
                 {
-                  apiID: 340692,
+                  apiID: "5c5b6753-0cfd-5c8e-9ba5-c31c0b0be3b1",
                   amount: 2
                 }
               ]
@@ -29,7 +29,7 @@ async function main() {
             cards: {
               create:
               {
-                apiID: 490061,
+                apiID: "f888d8cc-55f9-52fe-a47b-a3abf0b875b4",
                 amount: 2
               }
             }
@@ -38,7 +38,6 @@ async function main() {
       }
     }
   })
-  console.log(wellWisher);
 }
 main()
   .then(async () => {
