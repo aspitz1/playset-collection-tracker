@@ -7,7 +7,7 @@ export const fetchCardDetails = async (_: null, args: { apiID: String }) => {
       artist: card.artist,
       colors: card.colors,
       flavor: card.flavor,
-      image: card.imageUrl,
+      imageURL: card.imageUrl,
       legalities: card.legalities,
       manaCost: card.manaCost,
       name: card.name,
@@ -20,6 +20,6 @@ export const fetchCardDetails = async (_: null, args: { apiID: String }) => {
     }
     return cleanCardData
   } catch {
-    throw Error("Card not found.")
+    throw Error("Something has gone wrong. Please try again later.")
   }
 }

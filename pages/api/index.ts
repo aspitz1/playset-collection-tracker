@@ -1,7 +1,7 @@
 import { ApolloServer } from '@apollo/server'
 import { startServerAndCreateNextHandler } from '@as-integrations/next'
 import { typeDefs } from './typeDefs'
-import { findUser, findCollection, fetchCardDetails, cardSearch } from './resolvers'
+import { addCardsToCollection, deleteCardFromCollection, deleteCollection, cardSearch, createCollection, fetchCardDetails, findCollection, findUser, updateCardAmount } from './resolvers'
 
 const resolvers = {
   Query: {
@@ -9,14 +9,18 @@ const resolvers = {
     fetchCardDetails,
     findCollection,
     findUser,
+  },
+  Mutation: {
+    addCardsToCollection,
+    deleteCardFromCollection,
+    deleteCollection,
+    createCollection,
+    updateCardAmount
   }
 }
 
 /*
  - Mutations
-  - New Collection for an existing user
-  - Update Collection for an existing user (add / delete card)
-  - Delete Collection from an existing user
  - Create new user
 */
 

@@ -6,11 +6,14 @@ export const cardSearch = async (_: null, args: { colors: [String], gameFormat: 
     // error handling for strings ie: color formatting
     const response = await fetch(`https://api.magicthegathering.io/v1/cards?colors=${args.colors ?? ""}&gameFormat=${args.gameFormat ?? ""}&legality=${args.legality ?? ""}&name=${args.name}&rarity=${args.rarity ?? ""}&orderedBy=color&contains=imageUrl`)
     const { cards }: { cards: [Card] } = await response.json()
+    if (!cards.length) {
+      throw new Error("No cards found.")
+    }
     const cleanedCardData = cards.map(card => {
       return { apiID: card.id, image: card.imageUrl, name: card.name }
     })
     return cleanedCardData
   } catch {
-    throw new Error("No cards found.")
+    throw new Error("Something has gone wong. Please try again later.")
   }
 }
